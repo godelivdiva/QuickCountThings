@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PickActivity">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextViewLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_double_margin"
+            android:text="Template Perhitungan"
+            android:textColor="@color/colorPrimaryDark"/>
+
+    <LinearLayout
+        android:layout_margin="@dimen/default_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/demo_dark_transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_tmp_image"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_centerVertical="true"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/bg_border_list_image"
+                    android:padding="2dp"
+                    android:scaleType="centerCrop" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tmp_name"
+                    style="@style/TextViewMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/f_opensans"
+                    android:textStyle="bold"
+                    tools:text="Circle" />
+
+                <TextView
+                    android:id="@+id/tv_tmp_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_tmp_name"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"
+                    tools:text="Pipes, Circle Tubes" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="@dimen/default_margin"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_change"
+            style="@style/TextViewSmall"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/default_half_margin"
+            android:background="@drawable/btn_custom"
+            android:fontFamily="@font/f_opensans"
+            android:padding="@dimen/default_margin"
+            android:text="Ubah Template"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_start"
+            style="@style/TextViewSmall"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/default_half_margin"
+            android:background="@drawable/btn_custom"
+            android:fontFamily="@font/f_opensans"
+            android:padding="@dimen/default_margin"
+            android:text="Mulai Perhitungan"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_start"-->
+        <!--style="@style/TextViewMedium"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:textAlignment="center"-->
+        <!--android:layout_marginLeft="@dimen/default_margin"-->
+        <!--android:layout_marginRight="@dimen/default_margin"-->
+        <!--android:layout_marginTop="@dimen/default_double_margin"-->
+        <!--android:text="Mulai Perhitungan Baru"-->
+        <!--android:textColor="@color/colorPrimaryDark"/>-->
+
+
+
+    <!--<androidx.cardview.widget.CardView-->
+        <!--android:id="@+id/menu_pilih"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="@dimen/default_margin"-->
+        <!--android:onClick="pickimg"-->
+        <!--app:cardBackgroundColor="@color/colorPrimary"-->
+        <!--app:cardCornerRadius="@dimen/default_half_margin">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<TextView-->
+                <!--style="@style/TextViewMedium"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/iv_camera"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="@dimen/default_half_margin"-->
+                <!--android:layout_marginBottom="@dimen/default_half_margin"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:text="Pilih / Ambil Gambar" />-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/iv_camera"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--app:srcCompat="@drawable/ic_camera" />-->
+        <!--</RelativeLayout>-->
+    <!--</androidx.cardview.widget.CardView>-->
+
+</LinearLayout>

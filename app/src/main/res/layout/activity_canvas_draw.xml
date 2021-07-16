@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CanvasDrawActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="@dimen/default_double_margin">
+
+        <LinearLayout
+            android:id="@+id/headerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fabAdd"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/default_half_margin"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="@dimen/default_half_margin">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        style="@style/TextViewMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iv_camera"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/default_half_margin"
+                        android:layout_marginBottom="@dimen/default_half_margin"
+                        android:text="Pilih Gambar"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/iv_camera"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        app:srcCompat="@drawable/ic_camera" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fabCount"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/default_half_margin"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="@dimen/default_half_margin">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        style="@style/TextViewMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/iv_count"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/default_half_margin"
+                        android:layout_marginBottom="@dimen/default_half_margin"
+                        android:text="Hitung Objek"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/iv_count"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        app:srcCompat="@drawable/ic_loc" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/subheaderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headerView"
+            android:layout_marginTop="@dimen/default_half_margin"
+            android:layout_marginBottom="@dimen/default_half_margin"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_hasil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_half_margin"
+                app:cardCornerRadius="@dimen/default_half_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_hasil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_half_margin"
+                        android:layout_marginBottom="@dimen/default_half_margin"
+                        android:gravity="center"
+                        android:text="Hasil : 61"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/f_opensans" />
+
+                    <!--<LinearLayout-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:gravity="center"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="horizontal">-->
+
+
+                    <!--<Button-->
+                    <!--android:id="@+id/btn_reset_count"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@id/tv_hasil"-->
+                    <!--android:layout_margin="@dimen/default_half_margin"-->
+                    <!--android:background="@drawable/btn_custom"-->
+                    <!--android:drawableLeft="@drawable/ic_edit"-->
+                    <!--android:fontFamily="@font/f_opensans"-->
+                    <!--android:padding="@dimen/default_half_margin"-->
+                    <!--android:text=" Edit "-->
+                    <!--android:textAllCaps="false"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--/>-->
+                    <!--</LinearLayout>-->
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!--<ScrollView-->
+        <!--android:id="@+id/scrollablContent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/footerView"-->
+        <!--android:layout_below="@+id/headerView" >-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/footerView"
+            android:layout_below="@id/subheaderView">
+
+            <include
+                android:id="@+id/include"
+                layout="@layout/content_canvas_draw" />
+        </LinearLayout>
+
+        <!--</ScrollView>-->
+
+        <LinearLayout
+            android:id="@+id/footerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/default_margin"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+            <!--android:id="@+id/fabUndo"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom|center_vertical"-->
+            <!--android:layout_margin="@dimen/fab_margin"-->
+            <!--app:srcCompat="@drawable/ic_undo"-->
+            <!--android:tooltipText="Circle" />-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fabUndo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/undo"
+                app:cardCornerRadius="@dimen/default_half_margin">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_undo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/default_half_margin"
+                        app:srcCompat="@drawable/ic_undo" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <RadioGroup
+                android:id="@+id/rg_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/default_half_margin"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_plus"
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="  +  "
+                    android:textColor="@drawable/radio_flat_text_selector"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/rb_minus"
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/radio_flat_selector"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="  -  "
+                    android:textColor="@drawable/radio_flat_text_selector"
+                    android:textStyle="bold" />
+            </RadioGroup>
+            <!--<TextView-->
+            <!--android:layout_marginLeft="@dimen/default_margin"-->
+            <!--android:id="@+id/tv_hasil"-->
+            <!--style="@style/TextAppearance.AppCompat.Large"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:text="Hasil :  23"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/colorPrimaryDark"/>-->
+            <Button
+                android:id="@+id/btn_save_img"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/default_half_margin"
+                android:background="@drawable/btn_custom"
+                android:drawableLeft="@drawable/ic_save"
+                android:fontFamily="@font/f_opensans"
+                android:gravity="center"
+                android:padding="@dimen/default_half_margin"
+                android:text=" Simpan "
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

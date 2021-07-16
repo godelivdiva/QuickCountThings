@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#B99FEB</color>
+    <color name="colorPrimaryDark">#B99FEB</color>
+    <color name="colorAccent">#B99FEB</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="grey">#E2DBDBDB</color>
+    <color name="splash">#B99FEB</color>
+    <color name="warning">#FFC107</color>
+    <color name="undo">#818181</color>
+
+    <!--shimmer-->
+    <color name="demo_light_transparent">#16000000</color>
+    <color name="demo_dark_transparent">#24000000</color>
+</resources>

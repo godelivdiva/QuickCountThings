@@ -1,6 +1,8 @@
 package com.quick.quickcountthings.view;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -86,6 +88,9 @@ public class CanvasDrawActivity extends AppCompatActivity
     public static Boolean minus = false;
     String obj_type;
     Button btn_save_img;
+    String package_name = "com.quick.receivingtransaction";
+    String class_name = "com.quick.receivingtransaction.DelivesActivity";
+    String getNomorReceipt, getPosition;
 
     public static HashMap<Shape.Type, Integer> myDataset;
     public  static StatsPresenter statsPresenter;
@@ -120,6 +125,8 @@ public class CanvasDrawActivity extends AppCompatActivity
             }, 1);
         }
 
+        getNomorReceipt = "ODM331734";//getIntent().getStringExtra("NOMOR_RECEIPT");
+        getPosition = "0";//getIntent().getStringExtra("POSITION");
         obj_type = getIntent().getStringExtra("obj_type");
 
         rg_edit = (RadioGroup) findViewById(R.id.rg_edit);
@@ -260,6 +267,7 @@ public class CanvasDrawActivity extends AppCompatActivity
             sweetAlertDialog.dismissWithAnimation();
             Snackbar.make(getWindow().getDecorView().getRootView(), "Gambar tersimpan", Snackbar.LENGTH_LONG)
                     .show();
+            Log.e("gambar: ","save");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -275,6 +283,16 @@ public class CanvasDrawActivity extends AppCompatActivity
             tv_hasil.setText(" Hasil : 0 ");
         } else {
             tv_hasil.setText(stats);
+        }
+    }
+
+    int getHasil() {
+        myDataset = (HashMap<Shape.Type, Integer>) statsPresenter.getCountByGroup();
+        Integer hasil = myDataset.get(Shape.Type.CIRCLE);
+        if (hasil == null) {
+            return 0;
+        } else {
+            return  hasil;
         }
     }
 
@@ -537,9 +555,37 @@ public class CanvasDrawActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void startStatsView() {
-        Intent intent = new Intent(this, StatsActivity.class);
-        startActivity(intent);
+    public void startStatsView() {
+        if (getHasil()==0) {
+            new SweetAlertDialog(this,SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("Oops...")
+                    .setContentText("Data tidak ditemukan")
+                    .show();;
+        } else {
+            String getHasilHitung = String.valueOf(getHasil());
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+//        intent.setAction(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_LAUNCHER);
+            intent.putExtra("HASIL_HITUNG",getHasilHitung);
+            intent.putExtra("NOMOR_RECEIPT_QCT",getNomorReceipt);
+            intent.putExtra("POSITION_QCT",getPosition);
+            intent.setClassName(package_name,class_name);
+//        intent.setComponent(new ComponentName(package_name,class_name));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
+            intent.setComponent(new ComponentName(package_name,class_name));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            System.out.println("qty trx : " +getHasil()+ "- nomor receipt : " +getNomorReceipt+ "- position : " +getPosition);
+            try {
+                Log.e("intent :", "detected");
+                getApplicationContext().startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Uri link = Uri.parse("http://produksi.quick.com/APK/");
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, link);
+                startActivity(webIntent);
+            }
+        }
     }
 
     private void getCanvasWidthAndHeight() {
